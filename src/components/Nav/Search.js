@@ -11,6 +11,9 @@ const SearchContainer = styled.div`
 const SearchBox = styled(animated.input)`
   color: ${colors.primary};
   border: none;
+  &:focus {
+    outline-color: ${colors.secondary};
+  }
 `;
 
 const IconContainer = styled(animated.div)`
@@ -24,7 +27,7 @@ const Search = (props) => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const inputRef = React.createRef();
   const { hover } = props;
-  const checkIsActive = () => hover || (isActive && true);
+  const checkIsActive = () => (hover || isActive) && true;
 
   const searchAnim = useSpring({
     width: checkIsActive() ? "10em" : "1.1em",
@@ -68,7 +71,7 @@ const Search = (props) => {
       <IconContainer
         style={{ cursor: checkIsActive() ? "pointer" : "default" }}
         onClick={() => {
-          if (isActive) {
+          if (searchKeyword) {
             handleSearch(searchKeyword);
           } else {
             setIsActive(true);

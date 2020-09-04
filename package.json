@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --config webpack.dev.js --env development",
-    "build": "webpack --config webpack.prod.js --env production"
+    "build": "webpack --config webpack.prod.js --env production",
+    "test": "webpack --config webpack.test.js --env production"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.5",
+    "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",

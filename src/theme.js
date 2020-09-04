@@ -5,8 +5,15 @@ const theme = {
     heading: "#707070",
     text: "#4D4D4D",
   },
+  breakpoints: {
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920,
+  },
 };
 
 const colors = theme.colors;
+const breakpoints = theme.breakpoints;
 
-export { theme, colors };
+export { theme, colors, breakpoints };
