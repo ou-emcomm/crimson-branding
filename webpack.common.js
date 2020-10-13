@@ -9,13 +9,14 @@ module.exports = {
     rules: [
       //images
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: "file-loader",
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "url-loader",
         options: {
           outputPath: "static",
           esModule: false,
+          limit: 1024 * 8 //8 KB
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       //fonts
       {
@@ -23,9 +24,9 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "[name].[ext]",
-          outputPath: "static/fonts",
+          outputPath: "static/fonts"
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       //scripts
       {
@@ -34,21 +35,26 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
-        },
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
+        }
       },
       //styles
       {
         test: /\.s?[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ]
       },
       //html
       {
         test: /\.html$/,
-        use: "html-loader",
-      },
-    ],
+        use: "html-loader"
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -56,19 +62,22 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       minify: false,
-      template: "./src/index.html",
+      template: "./src/index.html.ejs.xslt",
       meta: {
-        viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        viewport:
+          "width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0",
         "og:title": "OU Enrollment Management",
         "og:site_name": "OU Enrollment Management",
         "og:url": "https://crimson.ou.edu",
-        "og:type": "website",
+        "og:type": "website"
       },
+      hash: true,
+      xhtml: true
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin()
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-  },
+    path: path.resolve(__dirname, "dist")
+  }
 };

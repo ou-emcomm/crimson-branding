@@ -5,13 +5,16 @@ import styled from "styled-components";
 
 const WordmarkImg = styled.img.attrs((props) => ({
   src: wordmark,
+  alt: "university of oklahoma wordmark",
 }))`
   width: 300px;
 `;
 const LogoImg = styled.img.attrs((props) => ({
   src: logo,
+  alt: "university of oklahoma logo",
 }))`
-  width: 40px;
+  width: 1.2em;
+  color: #fff;
 `;
 
 const Wordmark = () => {

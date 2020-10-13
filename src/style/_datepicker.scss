@@ -1,0 +1,123 @@
+.hasDatepicker {
+  //general
+  max-width: 400px;
+  border: 1px solid $tertiary;
+  @include media-breakpoint(md) {
+    border-width: 2px;
+  }
+  padding: 1em;
+  margin-top: 1em !important;
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+
+  td {
+    background-color: transparent !important;
+    a {
+      font-weight: 700;
+      color: $text !important;
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+  .ui-datepicker {
+    width: inherit;
+  }
+  //header
+  .ui-datepicker-header {
+    background: initial;
+    .ui-datepicker-next,
+    .ui-datepicker-prev {
+      cursor: pointer;
+      transform: translateY(8px);
+    }
+
+    .ui-datepicker-prev {
+      float: left;
+      span {
+        display: none;
+      }
+      &:after {
+        content: "";
+        background-image: url(../images/svg/chevron-left.svg);
+        height: 15px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 8px;
+      }
+    }
+
+    .ui-datepicker-next {
+      float: right;
+      span {
+        display: none;
+      }
+      &:after {
+        content: "";
+        background-image: url(../images/svg/chevron-right.svg);
+        height: 15px;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 8px;
+      }
+    }
+
+    .ui-datepicker-title {
+      color: $text;
+      text-align: center;
+      font-size: 1em;
+    }
+  }
+  .ui-state-default {
+    background: inherit;
+  }
+  .ui-state-hover {
+    background: initial;
+  }
+  .ui-state-disabled span {
+    color: $text !important;
+  }
+
+  .unavailable {
+    background-color: transparent !important;
+    a {
+      color: $tertiary !important;
+    }
+  }
+
+  .ui-datepicker-current-day a:before {
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: darkred;
+    left: 50%;
+    top: 50%;
+    margin: -15px;
+  }
+
+  .ui-datepicker-current-day a {
+    color: #fff !important;
+  }
+
+  td,
+  th {
+    padding: 5px;
+    text-align: center;
+    color: $text;
+    position: relative;
+    width: calc(100% / 7);
+  }
+
+  .ui-icon {
+    text-indent: initial;
+  }
+}

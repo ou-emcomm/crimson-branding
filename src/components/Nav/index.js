@@ -8,11 +8,10 @@ import styled from "styled-components";
 import { colors, breakpoints } from "../../theme";
 
 const Banner = styled.div`
-  height: 2em;
   display: flex;
   align-items: center;
   background: ${colors.primary};
-  padding: 0.5em 1em;
+  padding: 1em;
   justify-content: center;
 `;
 
@@ -32,7 +31,7 @@ const LogoContainer = styled(IconContainer)`
 const IconLinkContainer = styled.div`
   color: white;
   :not(:last-child) {
-    margin-right: 0.5em;
+    margin-right: 0.8em;
   }
 `;
 

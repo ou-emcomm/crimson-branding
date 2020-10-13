@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29.424" height="25.413" viewBox="0 0 29.424 25.413">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #841617;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #841617;
+      }
+    </style>
+  </defs>
+  <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(1 1)">
+    <path id="Path_353" data-name="Path 353" class="cls-1" d="M8699.981,3502.309l13.713-23.414,13.711,23.414Z" transform="translate(-8699.981 -3478.896)"/>
+    <path id="Path_354" data-name="Path 354" class="cls-2" d="M15.874,7.737H14.483l-.2-5.846h1.785Zm-.7.915a.938.938,0,0,1,.681.249.909.909,0,0,1,0,1.269,1.047,1.047,0,0,1-1.356,0,.841.841,0,0,1-.258-.632A.85.85,0,0,1,14.5,8.9.924.924,0,0,1,15.178,8.652Z" transform="translate(-1.786 8.783)"/>
+  </g>
+</svg>

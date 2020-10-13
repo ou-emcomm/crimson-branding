@@ -1,6 +1,10 @@
 @import "~normalize.css";
-
+@import "./variables";
+@import "./slate";
+@import "./base";
 * {
   font-family: "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
   font-weight: 400;
+  line-height: 1.5;
+  box-sizing: border-box;
 }

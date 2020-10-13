@@ -1,2 +1,4 @@
 import Nav from "./components/Nav/";
-import "./style.scss";
+import Footer from "./components/Footer/";
+import "./style/style.scss";
+import "./forms.js";

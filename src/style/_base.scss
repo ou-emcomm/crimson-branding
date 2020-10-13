@@ -1,0 +1,40 @@
+body {
+  a,
+  a:link {
+    color: $secondary;
+    font-weight: 900;
+    &:active,
+    &:visited,
+    &:hover {
+      color: inherit;
+    }
+  }
+  font-size: 14px;
+  #nav {
+    input {
+      border: none;
+    }
+    a {
+      color: #fff;
+    }
+  }
+
+  #content {
+    h1 {
+      color: $text;
+    }
+  }
+
+  #footer {
+    a,
+    a:link {
+      color: #fff;
+      font-weight: 900;
+      &:active,
+      &:visited,
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
