@@ -41,7 +41,7 @@
         display: none;
       }
       &:after {
-        content: "";
+        content: '';
         background-image: url(../images/svg/chevron-left.svg);
         height: 15px;
         display: block;
@@ -57,7 +57,7 @@
         display: none;
       }
       &:after {
-        content: "";
+        content: '';
         background-image: url(../images/svg/chevron-right.svg);
         height: 15px;
         display: block;
@@ -92,7 +92,7 @@
 
   .ui-datepicker-current-day a:before {
     border-radius: 50%;
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     display: inline-block;

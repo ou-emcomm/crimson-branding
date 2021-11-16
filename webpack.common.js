@@ -1,83 +1,100 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: './src/index.js',
+    preferences: './src/preferences.js',
+  },
+  resolve: { extensions: ['.js', '.jsx'] },
   module: {
     rules: [
-      //images
+      // images
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
-          outputPath: "static",
+          outputPath: 'static',
           esModule: false,
-          limit: 1024 * 8 //8 KB
+          limit: 1024 * 8, // 8 KB
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
-      //fonts
+      // fonts
       {
         test: /\/webfont\/.*\.(woff(2)?|ttf|eot|svg)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          name: "[name].[ext]",
-          outputPath: "static/fonts"
+          name: '[name].[ext]',
+          outputPath: 'static/fonts',
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
-      //scripts
+      // scripts
       {
         test: /\.m?jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
-      //styles
+      // styles
       {
         test: /\.s?[ac]ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
-      //html
+      // html
       {
         test: /\.html$/,
-        use: "html-loader"
-      }
-    ]
+        use: 'html-loader',
+      },
+    ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      // cleanStaleWebpackAssets: false,
+    new HtmlWebpackPlugin({
+      minify: false,
+      template: './src/index.html.ejs.xslt',
+      meta: {
+        viewport:
+          'width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0',
+        'og:title': 'OU Enrollment Management',
+        'og:site_name': 'OU Enrollment Management',
+        'og:url': 'https://crimson.ou.edu',
+        'og:type': 'website',
+      },
+      filename: 'index.html',
+      chunks: ['index'],
+      hash: true,
+      xhtml: true,
     }),
     new HtmlWebpackPlugin({
       minify: false,
-      template: "./src/index.html.ejs.xslt",
+      template: './src/preferences.html.ejs.xslt',
       meta: {
         viewport:
-          "width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0",
-        "og:title": "OU Enrollment Management",
-        "og:site_name": "OU Enrollment Management",
-        "og:url": "https://crimson.ou.edu",
-        "og:type": "website"
+          'width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0',
+        'og:title': 'OU Enrollment Management',
+        'og:site_name': 'OU Enrollment Management',
+        'og:url': 'https://crimson.ou.edu',
+        'og:type': 'website',
       },
+      filename: 'preferences.html',
+      chunks: ['preferences'],
       hash: true,
-      xhtml: true
+      xhtml: true,
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new ESLintPlugin(),
   ],
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
-  }
+    assetModuleFilename: 'static/[hash][ext][query]',
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
 };

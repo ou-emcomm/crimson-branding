@@ -9,7 +9,10 @@
     <head>
       <% if (process.env.NODE_ENV === 'production') {%>
       <xsl:apply-templates select="xhtml:html/xhtml:head/node()" />
-       <% } %>
+       <% }  else { %>
+         <link href="//fw.cdn.technolutions.net/framework/base.css?v=20210624" rel="stylesheet">
+         <link href="//crimson-ou-edu.cdn.technolutions.net/shared/base.css" rel="stylesheet">
+         <% } %>
     </head>
     <body>
       <div id="nav"></div>

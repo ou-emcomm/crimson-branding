@@ -1,9 +1,9 @@
 const theme = {
   colors: {
-    primary: "#2D2D2D",
-    secondary: "#841617",
-    heading: "#707070",
-    text: "#4D4D4D",
+    primary: '#2D2D2D',
+    secondary: '#841617',
+    heading: '#707070',
+    text: '#4D4D4D',
   },
   breakpoints: {
     sm: 576,
@@ -13,7 +13,7 @@ const theme = {
   },
 };
 
-const colors = theme.colors;
-const breakpoints = theme.breakpoints;
+const { colors } = theme;
+const { breakpoints } = theme;
 
 export { theme, colors, breakpoints };

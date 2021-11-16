@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:fw="http://technolutions.com/framework" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xhtml">
+  <xsl:template match="/">
+
+  <html xmlns="http://www.w3.org/1999/xhtml">
+    
+      <template path="/shared/base.xslt" xmlns="http://technolutions.com/framework" />
+    
+    <head>
+      
+      <xsl:apply-templates select="xhtml:html/xhtml:head/node()" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0"/><meta name="og:title" content="OU Enrollment Management"/><meta name="og:site_name" content="OU Enrollment Management"/><meta name="og:url" content="https://crimson.ou.edu"/><meta name="og:type" content="website"/><link href="/shared/build/index.css?d66c4965f4c17e963bb7" rel="stylesheet"/></head>
+    <body>
+      <div id="nav"></div>
+      <div id="content">
+        
+        <xsl:copy-of select="xhtml:html/xhtml:body/@*" />
+        <xsl:apply-templates select="xhtml:html/xhtml:body/node()" />
+        
+      </div>
+      <div id="footer"></div>
+    <script src="/shared/build/index.js?d66c4965f4c17e963bb7"></script></body>
+    </html>
+  
+    </xsl:template>
+    <xsl:template match="@* | node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" />
+    </xsl:copy>
+  </xsl:template>
+</xsl:stylesheet>
+
