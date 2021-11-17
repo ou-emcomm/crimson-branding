@@ -1,9 +1,10 @@
 <% if (process.env.NODE_ENV === 'production') { %>
   <html>
-    <head></head>
+    <head>
+    </head>
     <body>
-      <div id="content"></div></body>
-      <html>
+      <div id="portal-copy"></div></body>
+      </html>
     <%} else { %>
       <!DOCTYPE html>
       <html xmlns="http://www.w3.org/1999/xhtml">

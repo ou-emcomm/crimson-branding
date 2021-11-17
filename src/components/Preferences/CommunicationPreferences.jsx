@@ -117,7 +117,7 @@ const CommPref = function () {
           </Col>
           {c.channels.map((ch) => (
             <Col
-              className="align-items-center d-flex justify-content-center"
+              className="py-2 d-flex justify-content-center"
               style={{ padding: 0, textAlign: 'center' }}
               key={`${c.short}-box-${ch.key}`}
             >

@@ -38,4 +38,4 @@ const Preferences = function () {
   );
 };
 
-ReactDom.render(<Preferences />, document.getElementById('content'));
+ReactDom.render(<Preferences />, document.getElementById('portal-copy'));

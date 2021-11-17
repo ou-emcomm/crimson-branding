@@ -1,3 +1,4 @@
+const path = require('path');
 const { merge } = require('webpack-merge');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -20,11 +21,11 @@ module.exports = merge(common, {
     new ZipPlugin({
       path: '',
       filename: 'web.zip',
-      pathPrefix: './shared/build/',
+      pathPrefix: `./portals/${path.basename(process.cwd())}`,
       include: [/static\//, /\.css/, /\.js(\.map)?/],
     }),
   ],
   output: {
-    publicPath: '/shared/build/',
+    publicPath: `/portals/${path.basename(process.cwd())}/`,
   },
 });

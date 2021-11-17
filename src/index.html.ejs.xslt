@@ -7,7 +7,7 @@
       <template path="/shared/base.xslt" xmlns="http://technolutions.com/framework" />
     <%}%>
     <head>
-      <% if (process.env.NODE_ENV === 'production') {%>
+            <% if (process.env.NODE_ENV === 'production') {%>
       <xsl:apply-templates select="xhtml:html/xhtml:head/node()" />
        <% }  else { %>
          <link href="//fw.cdn.technolutions.net/framework/base.css?v=20210624" rel="stylesheet">
