@@ -3,7 +3,6 @@ import './checkboxes.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
-import './accordion.scss';
 
 const CommPref = function () {
   const campaigns = [

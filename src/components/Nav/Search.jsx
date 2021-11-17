@@ -7,6 +7,7 @@ import { colors } from '../../theme';
 
 const SearchContainer = styled.div`
   position: relative;
+  margin-bottom: -8px;
 `;
 const SearchBox = styled(animated.input)`
   color: ${colors.primary};
@@ -23,7 +24,7 @@ const IconContainer = styled(animated.div)`
   cursor: ${(props) => (props.$isActive ? 'pointer' : 'default')};
 `;
 
-const Search = (props) => {
+const Search = function (props) {
   const [isActive, setIsActive] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
   const inputRef = React.createRef();

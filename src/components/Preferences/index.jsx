@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import CommPref from './CommunicationPreferences.jsx';
 import CommMethods from './CommunicationMethods.jsx';
 import Parent from './ParentCommunication.jsx';
+import './preferences.scss';
 
 const Preferences = function () {
   return (
@@ -25,7 +26,7 @@ const Preferences = function () {
           <strong>Communication Preferences</strong>
         </span>
       </h2>
-      <Row>
+      <Row className="mb-3">
         <Col md={6}>
           <CommPref />
         </Col>

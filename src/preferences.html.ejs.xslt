@@ -13,7 +13,7 @@
             <link href="//crimson-ou-edu.cdn.technolutions.net/shared/base.css" rel="stylesheet"></head>
             <body>
               <div id="nav"></div>
-              <div id="content"></div>
+              <div id="content"><div id="portal-copy"></div></div>
               <div id="footer"></div>
             </body>
           </html>

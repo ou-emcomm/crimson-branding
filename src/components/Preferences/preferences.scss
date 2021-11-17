@@ -3,13 +3,21 @@ $accordion-padding-x: 0.5rem;
 $accordion-padding-y: 0.5rem;
 $accordion-border-width: 0;
 $accordion-color: #000;
+@import '../../style/variables.scss';
+@import '../../style/base.scss';
+
 #portal-copy {
   @import '~bootstrap/scss/functions';
   @import '~bootstrap/scss/variables';
   @import '~bootstrap/scss/mixins';
   @import '~bootstrap/scss/root';
   @import '~bootstrap/scss/accordion';
+  @import '~bootstrap/scss/containers';
   @import '~bootstrap/scss/transitions';
+  @import '~bootstrap/scss/grid';
+  @import '~bootstrap/scss/utilities';
+  @import '~bootstrap/scss/utilities/api';
+
   .accordion .accordion-button {
     font-size: 16px;
     font-family: 'Roboto', sans-serif !important;
