@@ -26,11 +26,11 @@ const Preferences = function () {
           <strong>Communication Preferences</strong>
         </span>
       </h2>
-      <Row className="mb-3">
-        <Col md={6}>
+      <Row>
+        <Col className="mb-3" md={6}>
           <CommPref />
         </Col>
-        <Col md={6}>
+        <Col className="mb-3" md={6}>
           <CommMethods />
         </Col>
       </Row>
