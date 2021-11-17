@@ -1,13 +1,4 @@
 .form_container {
-  width: 100%;
-  padding: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  @each $size, $width in $breakpoints {
-    @include media-breakpoint($size) {
-      max-width: map-get($max-width, $size);
-    }
-  }
   //header 1
   .form_h1 {
     .form_label {
@@ -191,6 +182,9 @@
         .form_response_label {
           @include label;
           text-align: center;
+          label {
+            cursor: pointer;
+          }
         }
       }
       .form_responses {

@@ -1,5 +1,16 @@
 @import './variables';
 @import './base';
+#content {
+  width: 100%;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @each $size, $width in $breakpoints {
+    @include media-breakpoint($size) {
+      max-width: map-get($max-width, $size);
+    }
+  }
+}
 #nav,
 #footer,
 #content > div:not(#portal_row_container) {
