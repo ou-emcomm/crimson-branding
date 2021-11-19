@@ -74,7 +74,6 @@ const CommPref = function () {
                 setToastMessage('There was an error saving your changes. Please try again later');
               }
             })
-            .then((res) => res.json())
             .then((data) => {
               if (isEqual(Object.keys(preferences).length - 1, i)) {
                 setUnsavedChanges(false);
