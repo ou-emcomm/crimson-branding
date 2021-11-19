@@ -59,9 +59,14 @@ const CommPref = function () {
           // TODO: remove when implementing email
           fetch(url, {
             method: 'POST',
-            mode: 'no-cors',
+            // mode: 'no-cors',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: qs.stringify({ type: ob, method: item, pref: preferences[ob][item] }),
+            body: qs.stringify({
+              cmd: 'updatePreferences',
+              type: ob,
+              method: item,
+              pref: preferences[ob][item],
+            }),
           })
             .then((res) => {
               if (!res.ok) {
