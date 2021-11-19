@@ -6,7 +6,7 @@ import logoRed from '../../images/logo-red.png';
 const Notification = function (props) {
   const { message, show, hide } = props;
   return (
-    <ToastContainer className="p-3" position="top-end">
+    <ToastContainer className="p-3 position-fixed top-0 end-0">
       <Toast show={show} autohide delay={4500} onClose={() => hide(!true)}>
         <Toast.Header>
           <img
