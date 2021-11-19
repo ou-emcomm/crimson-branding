@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import isEqual from 'lodash/isEqual';
+import qs from 'query-string';
 import campaigns from './campaigns';
 import Toast from './Toast';
 
@@ -59,11 +60,18 @@ const CommPref = function () {
           fetch(url, {
             method: 'POST',
             mode: 'no-cors',
-            body: JSON.stringify({ type: ob, method: item, pref: preferences[ob][item] }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: qs.stringify({ type: ob, method: item, pref: preferences[ob][item] }),
           })
+            .then((res) => {
+              if (!res.ok) {
+                setShowToast(true);
+                setToastMessage('There was an error saving your changes. Please try again later');
+              }
+            })
             .then((res) => res.json())
             .then((data) => {
-              if ((Object.keys(preferences).length - 1, i)) {
+              if (isEqual(Object.keys(preferences).length - 1, i)) {
                 setUnsavedChanges(false);
                 setShowToast(true);
                 setToastMessage('Your preferences have been saved!');
