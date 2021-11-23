@@ -48,7 +48,6 @@ const CommPref = function () {
     const box = el.name;
     setPreferences({ ...preferences, [box]: { [channel]: checked ? '1' : '0' } });
     setUnsavedChanges(true);
-    setInitPref({ ...preferences, [box]: { [channel]: checked ? '1' : '0' } });
   };
   const saveChanges = () => {
     const url = process.env.NODE_ENV === 'production'
@@ -80,6 +79,7 @@ const CommPref = function () {
                 setUnsavedChanges(false);
                 setShowToast(true);
                 setToastMessage('Your preferences have been saved!');
+                setInitPref({ ...preferences, [box]: { [channel]: checked ? '1' : '0' } });
               }
             })
             .catch((error) => {
