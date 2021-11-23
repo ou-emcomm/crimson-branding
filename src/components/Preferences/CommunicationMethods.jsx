@@ -56,6 +56,7 @@ const CommMethods = function () {
 
         <ButtonContainer>
           <Button
+            className="btn-outline-light rounded-pill"
             href="https://one.ou.edu/account/general"
             style={{ border: '1px solid #fff', textDecoration: 'none' }}
             target="_blank"
