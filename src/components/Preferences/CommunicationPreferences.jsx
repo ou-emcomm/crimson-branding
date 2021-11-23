@@ -79,7 +79,7 @@ const CommPref = function () {
                 setUnsavedChanges(false);
                 setShowToast(true);
                 setToastMessage('Your preferences have been saved!');
-                setInitPref({ ...preferences, [box]: { [channel]: checked ? '1' : '0' } });
+                setInitPref(preferences);
               }
             })
             .catch((error) => {
