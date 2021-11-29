@@ -152,7 +152,7 @@ const Parents = function () {
               <td>
                 {obj.guid === 'new' ? (
                   <select
-                    style={{ minWidth: '100px' }}
+                    style={{ minWidth: '120px' }}
                     className={`form-control form-select-sm form-select${
                       relationships.filter((el) => el.guid === 'new')[0].typeValue
                         ? validType
@@ -231,7 +231,7 @@ const Parents = function () {
                 ) : (
                   <button
                     style={{ minWidth: '150px' }}
-                    className="btn btn-secondary rounded-pill"
+                    className="btn btn-sm btn-secondary rounded-pill"
                     disabled={
                       !validFirst || !validLast || !validType || (!validEmail && 'disabled')
                     }
@@ -242,42 +242,44 @@ const Parents = function () {
                 )}
               </td>
               <td>
-                <button
-                  style={{ minWidth: '100px' }}
-                  className="btn btn-sm btn-outline-secondary rounded-pill"
-                  onClick={() => {
-                    const url = process.env.NODE_ENV === 'production'
-                      ? '?cmd=deleteRelation'
-                      : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/deleteRelation';
-                    fetch(url, {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                      body: qs.stringify({
-                        cmd: 'deleteRelation',
-                        guid: obj.guid,
-                      }),
-                    })
-                      .then((res) => {
-                        if (!res.ok) {
+                {obj.guid !== 'new' && (
+                  <button
+                    style={{ minWidth: '100px' }}
+                    className="btn btn-sm btn-outline-secondary rounded-pill"
+                    onClick={() => {
+                      const url = process.env.NODE_ENV === 'production'
+                        ? '?cmd=deleteRelation'
+                        : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/deleteRelation';
+                      fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: qs.stringify({
+                          cmd: 'deleteRelation',
+                          guid: obj.guid,
+                        }),
+                      })
+                        .then((res) => {
+                          if (!res.ok) {
+                            setShowToast(true);
+                            setToastMessage(
+                              'There was an error saving your changes. Please try again later',
+                            );
+                          }
+                        })
+                        .then((data) => {
                           setShowToast(true);
-                          setToastMessage(
-                            'There was an error saving your changes. Please try again later',
-                          );
-                        }
-                      })
-                      .then((data) => {
-                        setShowToast(true);
-                        setToastMessage('Your preferences have been saved!');
-                        loadRelationships();
-                      })
-                      .catch((error) => {
-                        setShowToast(true);
-                        setToastMessage(`There was an error... ${error}`);
-                      });
-                  }}
-                >
-                  Delete
-                </button>
+                          setToastMessage('Your preferences have been saved!');
+                          loadRelationships();
+                        })
+                        .catch((error) => {
+                          setShowToast(true);
+                          setToastMessage(`There was an error... ${error}`);
+                        });
+                    }}
+                  >
+                    Delete
+                  </button>
+                )}
               </td>
             </tr>
           ))}
