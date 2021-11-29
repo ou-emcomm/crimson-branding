@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -56,6 +57,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      // required by some @atlaskit components, but Webpack5 does not provide node.js polyfills anymore
+      process: 'process/browser',
+    }),
     new HtmlWebpackPlugin({
       minify: false,
       template: './src/index.html.ejs.xslt',
