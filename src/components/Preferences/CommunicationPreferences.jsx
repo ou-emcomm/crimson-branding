@@ -72,10 +72,7 @@ const CommPref = function () {
               if (!res.ok) {
                 setShowToast(true);
                 setToastMessage('There was an error saving your changes. Please try again later');
-              }
-            })
-            .then((data) => {
-              if (isEqual(Object.keys(preferences).length - 1, i)) {
+              } else if (isEqual(Object.keys(preferences).length - 1, i)) {
                 setUnsavedChanges(false);
                 setShowToast(true);
                 setToastMessage('Your preferences have been saved!');

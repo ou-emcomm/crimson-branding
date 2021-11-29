@@ -51,12 +51,11 @@ const Parents = function () {
         if (!res.ok) {
           setShowToast(true);
           setToastMessage('There was an error saving your changes. Please try again later');
+        } else {
+          setShowToast(true);
+          setToastMessage('Your preferences have been saved!');
+          loadRelationships();
         }
-      })
-      .then((data) => {
-        setShowToast(true);
-        setToastMessage('Your preferences have been saved!');
-        loadRelationships();
       })
       .catch((error) => {
         setShowToast(true);
@@ -229,6 +228,50 @@ const Parents = function () {
                     Awaiting Confirmation
                   </>
                 ) : (
+                  ''
+                )}
+              </td>
+              <td>
+                {obj.guid !== 'new' ? (
+                  <button
+                    style={{ minWidth: '100px' }}
+                    className="btn btn-sm btn-outline-secondary rounded-pill"
+                    onClick={() => {
+                      const url = process.env.NODE_ENV === 'production'
+                        ? '?cmd=deleteRelation'
+                        : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/deleteRelation';
+                      if (confirm('Are you sure you want to delete this relationship?')) {
+                        fetch(url, {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                          body: qs.stringify({
+                            cmd: 'deleteRelation',
+                            guid: obj.guid,
+                          }),
+                        })
+                          .then((res) => {
+                            console.log(res);
+                            if (!res.ok) {
+                              setShowToast(true);
+                              setToastMessage(
+                                'There was an error saving your changes. Please try again later',
+                              );
+                            } else {
+                              setShowToast(true);
+                              setToastMessage('Your preferences have been saved!');
+                              loadRelationships();
+                            }
+                          })
+                          .catch((error) => {
+                            setShowToast(true);
+                            setToastMessage(`There was an error... ${error}`);
+                          });
+                      }
+                    }}
+                  >
+                    Delete
+                  </button>
+                ) : (
                   <button
                     style={{ minWidth: '150px' }}
                     className="btn btn-sm btn-secondary rounded-pill"
@@ -238,46 +281,6 @@ const Parents = function () {
                     onClick={saveChanges}
                   >
                     Save Changes
-                  </button>
-                )}
-              </td>
-              <td>
-                {obj.guid !== 'new' && (
-                  <button
-                    style={{ minWidth: '100px' }}
-                    className="btn btn-sm btn-outline-secondary rounded-pill"
-                    onClick={() => {
-                      const url = process.env.NODE_ENV === 'production'
-                        ? '?cmd=deleteRelation'
-                        : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/deleteRelation';
-                      fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: qs.stringify({
-                          cmd: 'deleteRelation',
-                          guid: obj.guid,
-                        }),
-                      })
-                        .then((res) => {
-                          if (!res.ok) {
-                            setShowToast(true);
-                            setToastMessage(
-                              'There was an error saving your changes. Please try again later',
-                            );
-                          }
-                        })
-                        .then((data) => {
-                          setShowToast(true);
-                          setToastMessage('Your preferences have been saved!');
-                          loadRelationships();
-                        })
-                        .catch((error) => {
-                          setShowToast(true);
-                          setToastMessage(`There was an error... ${error}`);
-                        });
-                    }}
-                  >
-                    Delete
                   </button>
                 )}
               </td>
