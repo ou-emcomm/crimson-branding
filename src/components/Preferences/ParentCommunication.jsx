@@ -89,7 +89,13 @@ const Parents = function () {
         <strong>not</strong>
         {' '}
         receive information regarding your grades, financial situation, or
-        personal information unless permission is granted through your one.ou.edu account.
+        personal information unless permission is granted through your
+        {' '}
+        <a href="https://one.ou.edu" target="_blank" rel="noreferrer">
+          one.ou.edu
+        </a>
+        {' '}
+        account.
       </p>
       <p>When you add a parent/guardian, we will send them an email confirmation link.</p>
       <Table style={{ tableLayout: 'auto' }} responsive striped bordered>
