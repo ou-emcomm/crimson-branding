@@ -41,7 +41,7 @@ const CommMethods = function () {
         const data = result.row[0];
         setInfo({ ...data });
       });
-  });
+  }, []);
   return (
     <div>
       <Card>
