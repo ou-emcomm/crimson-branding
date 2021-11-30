@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -30,6 +30,18 @@ const Button = styled.a`
 `;
 
 const CommMethods = function () {
+  const [info, setInfo] = useState({ email: '', mobile: '' });
+  useEffect(() => {
+    const url = process.env.NODE_ENV === 'production'
+      ? '?cmd=getDefaults'
+      : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/getDefaults';
+    fetch(url)
+      .then((res) => res.json())
+      .then((result) => {
+        const data = result.row[0];
+        setInfo({ ...data });
+      });
+  });
   return (
     <div>
       <Card>
@@ -42,11 +54,11 @@ const CommMethods = function () {
         <p>
           <strong>Email:</strong>
           {' '}
-          bryce.kunkel@ou.edu
+          {info.email}
           <br />
           <strong>SMS:</strong>
           {' '}
-          +1 817-456-8711
+          {info.mobile}
         </p>
 
         <p>
