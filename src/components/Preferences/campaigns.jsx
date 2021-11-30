@@ -10,12 +10,19 @@ const campaigns = [
         <p>
           The
           {' '}
-          <strong>Student Financial Center</strong>
+          <a
+            style={{ textDecoration: 'none' }}
+            className="text-secondary"
+            href="https://ou.edu/sfc"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Student Financial Center
+          </a>
           {' '}
-          within the Division of Enrollment Management
-          uses SMS text messages to provide billing deadline reminders, financial aid updates,
-          scholarship information, and other important details. Standard text messaging and data
-          rates may apply.
+          within the Division of Enrollment Management uses SMS text messages to provide billing
+          deadline reminders, financial aid updates, scholarship information, and other important
+          details. Standard text messaging and data rates may apply.
         </p>
         <p>
           Students may opt-out at any time by responding to the text message. Please note that
@@ -39,12 +46,20 @@ const campaigns = [
         <p>
           The
           {' '}
-          <strong>OU MidFirst Bank MoneyCoach Program</strong>
+          <a
+            style={{ textDecoration: 'none' }}
+            className="text-secondary"
+            href="https://ou.edu/moneycoach"
+            target="_blank"
+            rel="noreferrer"
+          >
+            OU MidFirst Bank MoneyCoach Program
+          </a>
           {' '}
-          within the Division of Enrollment
-          Management uses SMS text messages to provide financial planning workshop invites,
-          appointment reminders, financial aid updates, scholarship information, and other important
-          details. Standard text messaging and data rates may apply.
+          within the Division of Enrollment Management uses SMS text messages to provide financial
+          planning workshop invites, appointment reminders, financial aid updates, scholarship
+          information, and other important details. Standard text messaging and data rates may
+          apply.
         </p>
         <p>
           Students may opt-out at any time by responding to the text message. Please note that
@@ -69,12 +84,19 @@ const campaigns = [
         <p>
           The
           {' '}
-          <strong>Office of the Registrar</strong>
+          <a
+            href="https://ou.edu/registrar"
+            style={{ textDecoration: 'none' }}
+            className="text-secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Office of the Registrar
+          </a>
           {' '}
-          within the Division of Enrollment Management
-          uses SMS text messages to provide enrollment information, appointment reminders, course
-          and classroom announcements, and other important details. Standard text messaging and data
-          rates may apply.
+          within the Division of Enrollment Management uses SMS text messages to provide enrollment
+          information, appointment reminders, course and classroom announcements, and other
+          important details. Standard text messaging and data rates may apply.
         </p>
         <p>
           Students may opt-out at any time by responding to the text message. Please note that

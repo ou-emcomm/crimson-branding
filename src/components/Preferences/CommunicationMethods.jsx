@@ -51,7 +51,17 @@ const CommMethods = function () {
 
         <p>
           If the details above are incorrect, please edit your contact information on the General
-          tab in One.
+          tab at
+          {' '}
+          <a
+            style={{ textDecoration: 'none' }}
+            href="https://one.ou.edu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            one.ou.edu
+          </a>
+          .
         </p>
 
         <ButtonContainer>

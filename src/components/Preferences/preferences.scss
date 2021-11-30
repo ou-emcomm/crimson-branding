@@ -1,24 +1,23 @@
-$primary: #861417;
+@import '../../style/variables.scss';
+@import '../../style/base.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/utilities';
 $accordion-padding-x: 0.5rem;
 $accordion-padding-y: 0.5rem;
 $accordion-border-width: 0;
 $accordion-color: #000;
-$form-feedback-invalid-color: $primary;
-@import '../../style/variables.scss';
-@import '../../style/base.scss';
+$form-feedback-invalid-color: $secondary;
 .portal_row {
   display: block;
 }
 #portal-copy {
-  @import '~bootstrap/scss/functions';
-  @import '~bootstrap/scss/variables';
-  @import '~bootstrap/scss/mixins';
-  @import '~bootstrap/scss/root';
   @import '~bootstrap/scss/accordion';
   @import '~bootstrap/scss/containers';
   @import '~bootstrap/scss/transitions';
   @import '~bootstrap/scss/grid';
-  @import '~bootstrap/scss/utilities';
   @import '~bootstrap/scss/utilities/api';
   @import '~bootstrap/scss/buttons';
   @import '~bootstrap/scss/toasts';

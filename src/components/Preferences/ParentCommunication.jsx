@@ -81,9 +81,15 @@ const Parents = function () {
         </span>
       </h2>
       <p>
-        We know your family is important - let us keep in touch with them as well! Add your
-        parent/guardian email address and we will send them information about upcoming important
-        dates and deadlines for the Division of Enrollment Management.
+        We know your family is important — that’s why we want to stay in touch with them as well! If
+        you choose to opt in your parent(s)/guardian(s), simply add their email address(es) and they
+        will receive marketing information about important upcoming dates and deadlines from the
+        Division of Enrollment Management via the provided email address(es). Those you list will
+        {' '}
+        <strong>not</strong>
+        {' '}
+        receive information regarding your grades, financial situation, or
+        personal information unless permission is granted through your one.ou.edu account.
       </p>
       <p>When you add a parent/guardian, we will send them an email confirmation link.</p>
       <Table style={{ tableLayout: 'auto' }} responsive striped bordered>
@@ -100,10 +106,9 @@ const Parents = function () {
         <tbody>
           {relationships.map((obj) => (
             <tr key={obj.guid}>
-              <td>
+              <td style={{ minWidth: '100px' }}>
                 {obj.guid === 'new' ? (
                   <input
-                    style={{ minWidth: '100px' }}
                     className={`form-control form-control-sm${
                       relationships.filter((el) => el.guid === 'new')[0].first.length > 0
                         ? validFirst
@@ -124,10 +129,9 @@ const Parents = function () {
                   obj.first
                 )}
               </td>
-              <td>
+              <td style={{ minWidth: '100px' }}>
                 {obj.guid === 'new' ? (
                   <input
-                    style={{ minWidth: '100px' }}
                     className={`form-control form-control-sm${
                       relationships.filter((el) => el.guid === 'new')[0].last.length > 0
                         ? validLast
@@ -148,10 +152,9 @@ const Parents = function () {
                   obj.last
                 )}
               </td>
-              <td>
+              <td style={{ minWidth: '120px' }}>
                 {obj.guid === 'new' ? (
                   <select
-                    style={{ minWidth: '120px' }}
                     className={`form-control form-select-sm form-select${
                       relationships.filter((el) => el.guid === 'new')[0].typeValue
                         ? validType
@@ -184,10 +187,10 @@ const Parents = function () {
                   obj.type
                 )}
               </td>
-              <td>
+              <td style={{ minWidth: '150px' }}>
                 {obj.guid === 'new' ? (
                   <input
-                    style={{ minWidth: '150px' }}
+                    autoCapitalize="off"
                     className={`form-control form-control-sm${
                       relationships.filter((el) => el.guid === 'new')[0].email.length > 3
                         ? validEmail
@@ -231,11 +234,10 @@ const Parents = function () {
                   ''
                 )}
               </td>
-              <td>
-                {obj.guid !== 'new' ? (
+              <td style={{ minWidth: '120px', textAlign: 'center' }}>
+                {obj.guid !== 'new' && !relationships.some((el) => el.guid === 'new') ? (
                   <button
-                    style={{ minWidth: '100px' }}
-                    className="btn btn-sm btn-outline-secondary rounded-pill"
+                    className="btn btn-sm btn-outline-secondary rounded-pill px-3"
                     onClick={() => {
                       const url = process.env.NODE_ENV === 'production'
                         ? '?cmd=deleteRelation'
@@ -250,7 +252,6 @@ const Parents = function () {
                           }),
                         })
                           .then((res) => {
-                            console.log(res);
                             if (!res.ok) {
                               setShowToast(true);
                               setToastMessage(
@@ -258,7 +259,7 @@ const Parents = function () {
                               );
                             } else {
                               setShowToast(true);
-                              setToastMessage('Your preferences have been saved!');
+                              setToastMessage('The relationship record has been deleted.');
                               loadRelationships();
                             }
                           })
@@ -271,17 +272,18 @@ const Parents = function () {
                   >
                     Delete
                   </button>
-                ) : (
+                ) : obj.guid == 'new' ? (
                   <button
-                    style={{ minWidth: '150px' }}
-                    className="btn btn-sm btn-secondary rounded-pill"
+                    className="btn btn-sm btn-secondary rounded-pill px-3"
                     disabled={
                       !validFirst || !validLast || !validType || (!validEmail && 'disabled')
                     }
                     onClick={saveChanges}
                   >
-                    Save Changes
+                    Save
                   </button>
+                ) : (
+                  ''
                 )}
               </td>
             </tr>
