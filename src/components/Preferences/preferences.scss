@@ -6,10 +6,12 @@
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/close";
 @import "~bootstrap/scss/transitions";
 
+.modal .modal-dialog {
+  @import "~bootstrap/scss/buttons";
+  @import "~bootstrap/scss/close";
+}
 $accordion-padding-x: 0.5rem;
 $accordion-padding-y: 0.5rem;
 $accordion-border-width: 0;
@@ -27,6 +29,8 @@ $form-feedback-invalid-color: $secondary;
   @import "~bootstrap/scss/toasts";
   @import "~bootstrap/scss/tables";
   @import "~bootstrap/scss/forms";
+  @import "~bootstrap/scss/buttons";
+  @import "~bootstrap/scss/close";
 
   .accordion .accordion-button {
     font-size: 14px;
