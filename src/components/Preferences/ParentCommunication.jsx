@@ -120,7 +120,10 @@ const Parents = () => {
         </thead>
         <tbody>
           {relationships.map(obj => (
-            <tr key={obj.guid}>
+            <tr
+              key={obj.guid}
+              className={deleteGuid === obj.guid ? "deleting" : ""}
+            >
               <td style={{ minWidth: "100px" }}>
                 {obj.guid === "new" ? (
                   <input
@@ -339,7 +342,13 @@ const Parents = () => {
           Are you sure you want to delete this relationship?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={() => setShowDelete(!showDelete)}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setShowDelete(!showDelete);
+              setDeleteGuid("");
+            }}
+          >
             Cancel
           </Button>
           <Button
@@ -362,17 +371,20 @@ const Parents = () => {
                     setToastMessage(
                       "There was an error saving your changes. Please try again later"
                     );
+                    setDeleteGuid("");
                   } else {
                     setShowToast(true);
                     setToastMessage(
                       "The relationship record has been deleted."
                     );
                     loadRelationships();
+                    setDeleteGuid("");
                   }
                 })
                 .catch(error => {
                   setShowToast(true);
                   setToastMessage(`There was an error... ${error}`);
+                  setDeleteGuid("");
                 });
             }}
           >

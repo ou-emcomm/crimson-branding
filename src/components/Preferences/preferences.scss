@@ -44,6 +44,10 @@ $form-feedback-invalid-color: $secondary;
       background-size: 1rem;
     }
   }
+  tr.deleting td {
+    color: var(--bs-gray-600);
+    font-style: italic;
+  }
   input,
   select {
     font-family: "Roboto", sans-serif;
