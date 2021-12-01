@@ -3,7 +3,10 @@
     <head>
     </head>
     <body>
-      <div id="portal-copy"></div></body>
+    <div id="nav"></div>
+      <div id="portal-copy"></div>
+      <div id="footer"></div>
+      </body>
       </html>
     <%} else { %>
       <!DOCTYPE html>
