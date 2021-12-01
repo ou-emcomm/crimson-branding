@@ -1,10 +1,15 @@
-@import '../../style/variables.scss';
-@import '../../style/base.scss';
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/root';
-@import '~bootstrap/scss/utilities';
+@import "../../style/variables.scss";
+@import "../../style/base.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/transitions";
+
 $accordion-padding-x: 0.5rem;
 $accordion-padding-y: 0.5rem;
 $accordion-border-width: 0;
@@ -13,22 +18,19 @@ $form-feedback-invalid-color: $secondary;
 .portal_row {
   display: block;
 }
+
 #portal-copy {
-  @import '~bootstrap/scss/accordion';
-  @import '~bootstrap/scss/containers';
-  @import '~bootstrap/scss/transitions';
-  @import '~bootstrap/scss/grid';
-  @import '~bootstrap/scss/utilities/api';
-  @import '~bootstrap/scss/buttons';
-  @import '~bootstrap/scss/toasts';
-  @import '~bootstrap/scss/close';
-  // @import '~bootstrap/scss/reboot';
-  @import '~bootstrap/scss/tables';
-  @import '~bootstrap/scss/forms';
+  @import "~bootstrap/scss/accordion";
+  @import "~bootstrap/scss/containers";
+  @import "~bootstrap/scss/grid";
+  @import "~bootstrap/scss/utilities/api";
+  @import "~bootstrap/scss/toasts";
+  @import "~bootstrap/scss/tables";
+  @import "~bootstrap/scss/forms";
 
   .accordion .accordion-button {
     font-size: 14px;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     font-weight: 400;
     line-height: 1.5;
     box-sizing: border-box;
@@ -40,7 +42,7 @@ $form-feedback-invalid-color: $secondary;
   }
   input,
   select {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     line-height: 1.5;
     box-sizing: border-box;

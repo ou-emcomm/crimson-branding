@@ -1,9 +1,10 @@
-import React from 'react';
-import Toast from 'react-bootstrap/Toast';
-import ToastContainer from 'react-bootstrap/ToastContainer';
-import logoRed from '../../images/logo-red.png';
+import React from "react";
+import Toast from "react-bootstrap/Toast";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import PropTypes from "prop-types";
+import logoRed from "../../images/logo-red.png";
 
-const Notification = function (props) {
+const Notification = (props) => {
   const { message, show, hide } = props;
   return (
     <ToastContainer className="p-3 position-fixed top-0 end-0">
@@ -11,11 +12,9 @@ const Notification = function (props) {
         <Toast.Header>
           <img
             src={logoRed}
-            style={{ height: '30px' }}
-            className="me-2"
+            style={{ height: "30px" }}
+            className="me-2 rounded"
             alt="interlocking OU"
-            className="rounded me-2"
-            alt=""
           />
           <strong className="me-auto">Notification</strong>
           <small>now</small>
@@ -24,5 +23,11 @@ const Notification = function (props) {
       </Toast>
     </ToastContainer>
   );
-};
+}
 export default Notification;
+
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+  show: PropTypes.bool.isRequired,
+  hide: PropTypes.func.isRequired
+};

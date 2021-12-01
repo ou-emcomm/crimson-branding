@@ -21,13 +21,13 @@ const campaigns = [
         <p>
           Students may opt-out of text messages at any time by navigating to
           {' '}
-          <a href="">crimson.ou.edu/portal/preferences</a>
+          <a href="/portal/preferences">crimson.ou.edu/portal/preferences</a>
           {' '}
-          and unchecking the SMS box associated
-          with the Student Financial Center. Please note that opting out will remove you from future
-          SMS communication from the Student Financial Center only. You will continue to receive
-          important emails from the Student Financial Center and other offices, as email remains the
-          official form of communication for the university.
+          and unchecking the SMS
+          box associated with the Student Financial Center. Please note that opting out will remove
+          you from future SMS communication from the Student Financial Center only. You will
+          continue to receive important emails from the Student Financial Center and other offices,
+          as email remains the official form of communication for the university.
         </p>
       </>
     ),
@@ -57,13 +57,14 @@ const campaigns = [
         <p>
           Students may opt-out of text messages at any time by navigating to
           {' '}
-          <a href="">crimson.ou.edu/portal/preferences</a>
+          <a href="/portal/preferences">crimson.ou.edu/portal/preferences</a>
           {' '}
-          and unchecking the SMS box associated
-          with the OU MidFirst Bank MoneyCoach Program. Please note that opting out will remove you
-          from future SMS communication from the OU MidFirst Bank MoneyCoach Program only. You will
-          continue to receive important emails from the OU MidFirst Bank MoneyCoach Program and
-          other offices, as email remains the official form of communication for the university.
+          and unchecking the SMS
+          box associated with the OU MidFirst Bank MoneyCoach Program. Please note that opting out
+          will remove you from future SMS communication from the OU MidFirst Bank MoneyCoach Program
+          only. You will continue to receive important emails from the OU MidFirst Bank MoneyCoach
+          Program and other offices, as email remains the official form of communication for the
+          university.
         </p>
       </>
     ),
@@ -92,13 +93,13 @@ const campaigns = [
         <p>
           Students may opt-out of text messages at any time by navigating to
           {' '}
-          <a href="">crimson.ou.edu/portal/preferences</a>
+          <a href="/portal/preferences">crimson.ou.edu/portal/preferences</a>
           {' '}
-          and unchecking the SMS box associated
-          with the Office of the Registrar. Please note that opting out will remove you from future
-          SMS communication from the Office of the Registrar only. You will continue to receive
-          important emails from the Office of the Registrar and other offices, as email remains the
-          official form of communication for the university.
+          and unchecking the SMS
+          box associated with the Office of the Registrar. Please note that opting out will remove
+          you from future SMS communication from the Office of the Registrar only. You will continue
+          to receive important emails from the Office of the Registrar and other offices, as email
+          remains the official form of communication for the university.
         </p>
       </>
     ),

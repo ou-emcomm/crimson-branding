@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import ReactDom from 'react-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
-import styled from 'styled-components';
-import Search from './Search.jsx';
-import { Logo, Wordmark } from './Logo.jsx';
-import EmWordmark from './Wordmark.jsx';
-import { colors, breakpoints } from '../../theme';
+import React, { useState, useEffect } from "react";
+import ReactDom from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
+import styled from "styled-components";
+import Search from "./Search";
+import { LogoImg, WordmarkImg } from "./Logo";
+import EmWordmark from "./Wordmark";
+import { colors, breakpoints } from "../../theme";
 
 const Banner = styled.div`
   display: flex;
@@ -47,8 +47,8 @@ const Nav = () => {
   useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
 
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   return (
     <div>
@@ -64,13 +64,15 @@ const Nav = () => {
             <Search hover={searchHover} />
           </IconLinkContainer>
         </IconContainer>
-        <WordmarkContainer>{width >= breakpoints.md && <Wordmark />}</WordmarkContainer>
-        <LogoContainer>{width < breakpoints.md && <Logo />}</LogoContainer>
+        <WordmarkContainer>
+          {width >= breakpoints.md && <WordmarkImg />}
+        </WordmarkContainer>
+        <LogoContainer>{width < breakpoints.md && <LogoImg />}</LogoContainer>
       </Banner>
       <EmWordmark fullWidth={width < breakpoints.md} />
       <HoriztonalBar />
     </div>
   );
-};
+}
 
-ReactDom.render(<Nav />, document.getElementById('nav'));
+ReactDom.render(<Nav />, document.getElementById("nav"));

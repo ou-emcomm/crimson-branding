@@ -1,0 +1,21 @@
+{
+  "row": [
+    {
+      "first": "Lara",
+      "last": "Kunkel",
+      "email": "larakunkel@ou.edu",
+      "type": "Sister",
+      "typeValue": "424d5e0d-e328-4e44-a99d-e49260077beb",
+      "guid": "50f56bb7-d486-42db-becb-1491f22d4594"
+    },
+    {
+      "first": "Steve",
+      "last": "Kunkel",
+      "email": "old.man@kunkel.net",
+      "type": "Father",
+      "typeValue": "40dc8d50-8db3-4c19-a0b9-1395e6ab082d",
+      "confirmed": "0",
+      "guid": "dfa4ea62-e0a9-4b7d-a1d6-c140b7adb66b"
+    }
+  ]
+}

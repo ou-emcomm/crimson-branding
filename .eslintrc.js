@@ -2,22 +2,29 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier"
   ],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module"
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ["react"],
   rules: {
-  },
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function"
+      }
+    ]
+  }
 };

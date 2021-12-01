@@ -1,0 +1,32 @@
+{
+  "row": [
+    {
+      "label": "Brother",
+      "value": "e3b3f1bd-7423-4fc9-8c75-f2209eb43e64"
+    },
+    {
+      "label": "Father",
+      "value": "40dc8d50-8db3-4c19-a0b9-1395e6ab082d"
+    },
+    {
+      "label": "Legal Guardian",
+      "value": "f985094d-adc2-49af-9f9f-63da71e2fe77"
+    },
+    {
+      "label": "Mother",
+      "value": "5120ac3d-b5ec-4689-929c-d90a434725e8"
+    },
+    {
+      "label": "Sister",
+      "value": "424d5e0d-e328-4e44-a99d-e49260077beb"
+    },
+    {
+      "label": "Step-Father",
+      "value": "22f13378-a577-4b33-b8c5-c1cb9e90e966"
+    },
+    {
+      "label": "Step-Mother",
+      "value": "862dfc03-b13b-4018-9f73-6664121327c9"
+    }
+  ]
+}

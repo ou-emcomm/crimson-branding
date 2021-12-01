@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import styled from 'styled-components';
-import { colors, breakpoints } from '../../theme';
-import Logo from './Logo.jsx';
-import Address from './Address.jsx';
-import Website from './Website.jsx';
-import Social from './Social.jsx';
+import React from "react";
+import ReactDom from "react-dom";
+import styled from "styled-components";
+import { colors, breakpoints } from "../../theme";
+import Logo from "./Logo";
+import Address from "./Address";
+import Website from "./Website";
+import Social from "./Social";
 
 const FooterContainer = styled.div`
   background: ${colors.primary};
@@ -40,33 +40,33 @@ const Col4 = styled(Col)`
   @media (min-width: ${breakpoints.md}px) {
     flex: 0 0 33.33333%;
     max-width: 33.33333%;
-    justify-content: ${(props) => props.justify};
-    align-items: ${(props) => props.align};
+    justify-content: ${props => props.justify};
+    align-items: ${props => props.align};
     padding-bottom: 0px;
   }
 `;
 
 const Footer = () => (
-  <FooterContainer>
-    <Row>
-      <Col4 justify="flex-start">
-        <Row>
-          <ColAuto style={{ paddingBottom: 0 }}>
-            <Logo />
-          </ColAuto>
-          <Col style={{ paddingBottom: 0 }}>
-            <Address />
-          </Col>
-        </Row>
-      </Col4>
-      <Col4>
-        <Website />
-      </Col4>
-      <Col4 justify="flex-end" align="center">
-        <Social />
-      </Col4>
-    </Row>
-  </FooterContainer>
-);
+    <FooterContainer>
+      <Row>
+        <Col4 justify="flex-start">
+          <Row>
+            <ColAuto style={{ paddingBottom: 0 }}>
+              <Logo />
+            </ColAuto>
+            <Col style={{ paddingBottom: 0 }}>
+              <Address />
+            </Col>
+          </Row>
+        </Col4>
+        <Col4>
+          <Website />
+        </Col4>
+        <Col4 justify="flex-end" align="center">
+          <Social />
+        </Col4>
+      </Row>
+    </FooterContainer>
+  )
 
-ReactDom.render(<Footer />, document.getElementById('footer'));
+ReactDom.render(<Footer />, document.getElementById("footer"));

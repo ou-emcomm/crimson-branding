@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const Card = styled.div`
   background-size: cover;
@@ -29,15 +29,16 @@ const Button = styled.a`
   white-space: nowrap;
 `;
 
-const CommMethods = function () {
-  const [info, setInfo] = useState({ email: '', mobile: '' });
+const CommMethods = () => {
+  const [info, setInfo] = useState({ email: "", mobile: "" });
   useEffect(() => {
-    const url = process.env.NODE_ENV === 'production'
-      ? '?cmd=getDefaults'
-      : 'https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/getDefaults';
+    const url =
+      process.env.NODE_ENV === "production"
+        ? "?cmd=getDefaults"
+        : "/dev/defaults.json";
     fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
+      .then(res => res.json())
+      .then(result => {
         const data = result.row[0];
         setInfo({ ...data });
       });
@@ -46,27 +47,22 @@ const CommMethods = function () {
     <div>
       <Card>
         <h2>
-          <span style={{ color: '#ffffff' }}>
+          <span style={{ color: "#ffffff" }}>
             <strong>Contact Information</strong>
           </span>
         </h2>
 
         <p>
-          <strong>Email:</strong>
-          {' '}
-          {info.email}
+          <strong>Email:</strong> {info.email}
           <br />
-          <strong>SMS:</strong>
-          {' '}
-          {info.mobile}
+          <strong>SMS:</strong> {info.mobile}
         </p>
 
         <p>
-          If the details above are incorrect, please edit your contact information on the General
-          tab at
-          {' '}
+          If the details above are incorrect, please edit your contact
+          information on the General tab at{" "}
           <a
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
             href="https://one.ou.edu"
             target="_blank"
             rel="noreferrer"
@@ -80,7 +76,7 @@ const CommMethods = function () {
           <Button
             className="btn-outline-light rounded-pill"
             href="https://one.ou.edu/account/general"
-            style={{ border: '1px solid #fff', textDecoration: 'none' }}
+            style={{ border: "1px solid #fff", textDecoration: "none" }}
             target="_blank"
           >
             Update
