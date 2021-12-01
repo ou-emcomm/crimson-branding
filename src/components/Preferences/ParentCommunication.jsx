@@ -93,7 +93,12 @@ const Parents = () => {
         Those you list will <strong>not</strong> receive information regarding
         your grades, financial situation, or personal information unless
         permission is granted through your{" "}
-        <a href="https://one.ou.edu" target="_blank" rel="noreferrer">
+        <a
+          className="text-primary"
+          href="https://one.ou.edu"
+          target="_blank"
+          rel="noreferrer"
+        >
           one.ou.edu
         </a>{" "}
         account.

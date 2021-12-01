@@ -62,7 +62,7 @@ const CommMethods = () => {
           If the details above are incorrect, please edit your contact
           information on the General tab at{" "}
           <a
-            style={{ textDecoration: "none" }}
+            className="text-white"
             href="https://one.ou.edu"
             target="_blank"
             rel="noreferrer"
