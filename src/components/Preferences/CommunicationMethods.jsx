@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Card = styled.div`
   background-size: cover;
@@ -29,20 +30,8 @@ const Button = styled.a`
   white-space: nowrap;
 `;
 
-const CommMethods = () => {
-  const [info, setInfo] = useState({ email: "", mobile: "" });
-  useEffect(() => {
-    const url =
-      process.env.NODE_ENV === "production"
-        ? "?cmd=getDefaults"
-        : "/dev/defaults.json";
-    fetch(url)
-      .then(res => res.json())
-      .then(result => {
-        const data = result.row[0];
-        setInfo({ ...data });
-      });
-  }, []);
+const CommMethods = props => {
+  const { data } = props;
   return (
     <div>
       <Card>
@@ -53,9 +42,9 @@ const CommMethods = () => {
         </h2>
 
         <p>
-          <strong>Email:</strong> {info.email}
+          <strong>Email:</strong> {data.email}
           <br />
-          <strong>SMS:</strong> {info.mobile}
+          <strong>SMS:</strong> {data.mobile}
         </p>
 
         <p>
@@ -87,3 +76,11 @@ const CommMethods = () => {
   );
 };
 export default CommMethods;
+
+CommMethods.propTypes = {
+  data: PropTypes.exact({
+    mobile: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    preferred: PropTypes.string.isRequired
+  }).isRequired
+};
