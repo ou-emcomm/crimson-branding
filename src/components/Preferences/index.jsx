@@ -49,7 +49,7 @@ const Preferences = () => {
       <p>Check the boxes or leave them blank to complete your preferences.</p>
       <Row>
         <Col className="mb-3" md={6}>
-          <CommPref />
+          <CommPref data={info} />
         </Col>
         <Col className="mb-3" md={6}>
           <CommMethods data={info} />

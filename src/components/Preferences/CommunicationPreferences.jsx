@@ -5,10 +5,28 @@ import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
 import isEqual from "lodash/isEqual";
 import qs from "query-string";
+import PropTypes from "prop-types";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 import campaigns from "./campaigns";
 import Toast from "./Toast";
+import ConditionalWrapper from "./ConditionalWrapper";
 
-const CommPref = () => {
+const noMobile = (id, header, body, children) => (
+  <OverlayTrigger
+    overlay={
+      <Popover id={id}>
+        <Popover.Header as="h3">{header}</Popover.Header>
+        <Popover.Body dangerouslySetInnerHTML={{ __html: body }} />
+      </Popover>
+    }
+  >
+    <div>{children}</div>
+  </OverlayTrigger>
+);
+
+const CommPref = props => {
+  const { data } = props;
   const [init, setInit] = useState(false);
   const [initPref, setInitPref] = useState(() => {
     const pref = {};
@@ -124,27 +142,57 @@ const CommPref = () => {
             >
               <div className="form_checkbox">
                 <div className="form_responses">
-                  <input
-                    checked={(() => {
-                      if (ch.disabled) {
-                        return "checked";
-                      }
-                      if (preferences[c.short][ch.type] === "1") {
-                        return "checked";
-                      }
-                      return "";
-                    })()}
-                    onChange={handleChange}
-                    disabled={ch.disabled || !init ? "disabled" : ""}
-                    id={`${c.short}-${ch.type}`}
-                    data-method={ch.type}
-                    name={`${c.short}`}
-                    readOnly={ch.disabled ? "readonly" : ""}
-                    type="checkbox"
-                  />
-                  <label htmlFor={`${c.short}-${ch.type}`}>
-                    <span className="hidden">{`${c.name}-${ch.type}`}</span>
-                  </label>
+                  <ConditionalWrapper
+                    condition={
+                      ch.type === "sms" && (!data.mobile || data.mobile === "")
+                    }
+                    wrapper={children =>
+                      noMobile(
+                        `${c.short}-box-${ch.key}`,
+                        `Cannot add texting preferences for the ${c.name}`,
+                        `<p>Cannot add texting preferences becuase there is no phone number on file. Visit <a href="https://one.ou.edu" target="_blank">one.ou.edu</a> to add a mobile phone.</p><p class="small">Please note that it can take up to two hours for you phone number to sync back to this portal.</p>`,
+                        children
+                      )
+                    }
+                  >
+                    <>
+                      <input
+                        style={{
+                          pointerEvents:
+                            !data.mobile || data.mobile === ""
+                              ? "none"
+                              : "inherit"
+                        }}
+                        checked={(() => {
+                          if (ch.disabled) {
+                            return "checked";
+                          }
+                          if (preferences[c.short][ch.type] === "1") {
+                            return "checked";
+                          }
+                          return "";
+                        })()}
+                        onChange={handleChange}
+                        disabled={(() => {
+                          if (ch.disabled || !init) {
+                            return "disabled";
+                          }
+                          if (!data.mobile || data.mobile === "") {
+                            return "disabled";
+                          }
+                          return "";
+                        })()}
+                        id={`${c.short}-${ch.type}`}
+                        data-method={ch.type}
+                        name={`${c.short}`}
+                        readOnly={ch.disabled ? "readonly" : ""}
+                        type="checkbox"
+                      />
+                      <label htmlFor={`${c.short}-${ch.type}`}>
+                        <span className="hidden">{`${c.name}-${ch.type}`}</span>
+                      </label>
+                    </>
+                  </ConditionalWrapper>
                 </div>
               </div>
             </Col>
@@ -169,3 +217,9 @@ const CommPref = () => {
   );
 };
 export default CommPref;
+
+CommPref.propTypes = {
+  data: PropTypes.shape({
+    mobile: PropTypes.string.isRequired
+  }).isRequired
+};
