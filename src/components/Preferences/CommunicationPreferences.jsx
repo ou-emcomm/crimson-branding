@@ -150,7 +150,7 @@ const CommPref = props => {
                       noMobile(
                         `${c.short}-box-${ch.key}`,
                         `Cannot add texting preferences for the ${c.name}`,
-                        `<p>Cannot add texting preferences becuase there is no phone number on file. Visit <a href="https://one.ou.edu" target="_blank">one.ou.edu</a> to add a mobile phone.</p><p class="small">Please note that it can take up to two hours for you phone number to sync back to this portal.</p>`,
+                        `<p>Cannot add texting preferences becuase there is no phone number on file. Visit <a href="https://one.ou.edu" target="_blank">one.ou.edu</a> to add a mobile phone.</p><p class="small">Please note that it can take up to two hours for any updates to sync back to this portal.</p>`,
                         children
                       )
                     }
