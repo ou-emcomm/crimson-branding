@@ -52,7 +52,7 @@ const CommMethods = props => {
           information on the General tab at{" "}
           <a
             className="text-white"
-            href="https://one.ou.edu"
+            href="https://one.ou.edu/account/general"
             target="_blank"
             rel="noreferrer"
           >

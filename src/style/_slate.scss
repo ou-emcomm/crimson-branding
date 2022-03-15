@@ -46,6 +46,18 @@
       }
     }
   }
+  .form_textarea {
+    .form_label {
+      @include label;
+    }
+    .form_responses {
+      margin-top: 0.5em;
+      textarea {
+        @include generic;
+        resize: vertical;
+      }
+    }
+  }
   //select boxes
   .form_select {
     .form_label {
@@ -194,7 +206,7 @@
           text-align: center;
           div.selected {
             &:after {
-              content: '';
+              content: "";
               background-color: #841617;
               border-radius: 50%;
               height: 24px;
@@ -210,7 +222,7 @@
             opacity: 0;
           }
           &:before {
-            content: '';
+            content: "";
             background-color: $tertiary;
             width: 2px;
             height: 1em;
@@ -221,7 +233,7 @@
             left: calc(50% - 1.15px);
           }
           &:after {
-            content: '';
+            content: "";
             background-color: $tertiary;
             width: 100%;
             height: 2px;
@@ -270,7 +282,7 @@
       @include label;
     }
     .form_responses {
-      @import './datepicker.scss';
+      @import "./datepicker.scss";
     }
   }
   // material uploader
@@ -329,16 +341,16 @@
     .form_label {
       color: $secondary;
       &:before {
-        content: '';
-        background-image: url('../images/svg/invalid.svg');
-
+        content: "";
+        background-image: url("../images/svg/invalid.svg");
         height: 1em;
         background-repeat: no-repeat;
         background-size: contain;
-        position: relative;
+        position: absolute;
         display: inline-block;
         width: 1.5em;
         vertical-align: -2px;
+        left: -1.5em;
       }
     }
   }
@@ -388,7 +400,7 @@
         color: $text;
         font-weight: 900;
         &:before {
-          content: '';
+          content: "";
           background-image: url(../images/svg/invalid.svg);
           display: block;
           height: 30px;
@@ -403,7 +415,7 @@
       }
     }
 
-    div[role='alert'] {
+    div[role="alert"] {
       color: $secondary !important;
     }
     .action {
