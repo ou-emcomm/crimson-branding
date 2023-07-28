@@ -83,7 +83,7 @@ const CommPref = props => {
         : "https://0a4000bc-980e-4144-9a64-c8acf69f392a.mock.pstmn.io/updatePreferences";
     Object.keys(preferences).forEach((ob, i) => {
       Object.keys(preferences[ob]).forEach(item => {
-        if (item !== "email") {
+        // if (item !== "email") {
           // TODO: remove when implementing email
           fetch(url, {
             method: "POST",
@@ -113,7 +113,7 @@ const CommPref = props => {
               setShowToast(true);
               setToastMessage(`There was an error... ${error}`);
             });
-        }
+        // }
       });
     });
   };
@@ -150,7 +150,7 @@ const CommPref = props => {
                       noMobile(
                         `${c.short}-box-${ch.key}`,
                         `Cannot add texting preferences for the ${c.name}`,
-                        `<p>Cannot add texting preferences becuase there is no phone number on file. Visit <a href="https://one.ou.edu" target="_blank">one.ou.edu</a> to add a mobile phone.</p><p class="small">Please note that it can take up to two hours for any updates to sync back to this portal.</p>`,
+                        `<p>Cannot add texting preferences because there is no phone number on file. Visit <a href="https://one.ou.edu" target="_blank">one.ou.edu</a> to add a mobile phone.</p><p class="small">Please note that it can take up to two hours for any updates to sync back to this portal.</p>`,
                         children
                       )
                     }

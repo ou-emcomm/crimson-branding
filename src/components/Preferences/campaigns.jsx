@@ -63,14 +63,14 @@ const campaigns = [
           details. Standard text messaging and data rates may apply.
         </p>
         <p>
-          Students may opt-out of text messages at any time by navigating to{" "}
+          Students may opt-out of email marketing and text messages at any time by navigating to{" "}
           <a className="text-primary" href="/portal/preferences">
             crimson.ou.edu/portal/preferences
           </a>{" "}
-          and unchecking the SMS box associated with the OU MidFirst Bank
+          and unchecking the email and/or SMS boxes associated with the OU MidFirst Bank
           MoneyCoach Program. Please note that opting out will remove you from
-          future SMS communication from the OU MidFirst Bank MoneyCoach Program
-          only. You will continue to receive important emails from the OU
+          future marketing communication from the OU MidFirst Bank MoneyCoach Program
+          only. You will continue to receive important non-marketing emails from the OU
           MidFirst Bank MoneyCoach Program and other offices, as email remains
           the official form of communication for the university.
         </p>
